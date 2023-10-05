@@ -1,7 +1,7 @@
 import React from 'react';
 import FavoriteList from '../FavoriteList/FavoriteList.jsx';
-import "./app.css";
 import Search from '../Search/Search.jsx';
+import "./app.css";
 
 function App(props) {
   return (

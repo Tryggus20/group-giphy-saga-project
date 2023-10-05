@@ -36,10 +36,12 @@ export default function Search() {
       {searchResults.data?.length > 0 ? (
         searchResults.data.map((gif) => (
           <div key={gif.id}>
-            <img src={gif.images.original.url} />
+            <img src={gif.images.original.url}  style={{ width: '270px', height: '270px' }}/>
+            <br/>
             <button onClick={() => addFavorite(gif.images.original.url)}>
               Favorite
             </button>
+            <br/><br/>
           </div>
         ))
       ) : (
