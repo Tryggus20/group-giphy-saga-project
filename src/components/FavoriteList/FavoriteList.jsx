@@ -13,7 +13,6 @@ console.log(fList);
 return (
     <div className="FavoriteListContainer" >
         <h2>Here are the favorite gifs:</h2>
-        <img src="https://giphy.com/embed/MC6eSuC3yypCU" />
     {/* {fList.map((favorite) => (
         <FavoriteListItem  favorite={favorite}/> 
     ))} */}
