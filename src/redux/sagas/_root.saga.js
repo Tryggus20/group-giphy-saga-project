@@ -6,7 +6,7 @@ function* watcherSaga() {
     yield takeEvery('ADD_FAVORITE', postFavoriteSaga)
     yield takeEvery('FETCH_FAVORITE', getFavoriteSaga)
     yield takeEvery('UPDATE_FAVORITE', updateFavoriteSaga)
-    yield takeEvery('DELETE_FAVORITE', deleteFavoriteSaga)
+    // yield takeEvery('DELETE_FAVORITE', deleteFavoriteSaga)
     yield takeEvery('FETCH_CATEGORY', getCategorySaga)
 };
 
