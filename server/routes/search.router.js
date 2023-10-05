@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
+
 router.get('/:query', async (req, res) => {
     try {
         const searchInfo = req.params.query;
