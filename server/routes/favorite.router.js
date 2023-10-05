@@ -1,27 +1,70 @@
-const express = require('express');
-const pool = require('../modules/pool');
+const express = require("express");
+const pool = require("../modules/pool");
 
 const router = express.Router();
 
 // return all favorite images
-router.get('/', (req, res) => {
-  res.sendStatus(200);
+router.get("/", (req, res) => {
+  // return all categories
+  const queryText = `SELECT * FROM favorite ORDER BY id ASC`;
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on query ${error}`);
+      res.sendStatus(500);
+    });
 });
 
 // add a new favorite
-router.post('/', (req, res) => {
-  res.sendStatus(200);
+router.post("/", (req, res) => {
+  const newGif = req.body;
+  const queryText = `INSERT INTO "favorite" ("url")
+                    VALUES ($1)`;
+  const queryValues = [newGif.url];
+  pool
+    .query(queryText, queryValues)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log("Error completing adding gif to favorite query", err);
+      res.sendStatus(500);
+    });
 });
 
 // update given favorite with a category id
-router.put('/:favId', (req, res) => {
-  // req.body should contain a category_id to add to this favorite image
-  res.sendStatus(200);
+// req.body should contain a category_id to add to this favorite image
+router.put(`/:id`, (req, res) => {
+  const updatedGif = req.body;
+  const queryText = `UPDATE "favorite"
+SET "category_id" = $1
+  WHERE id=$2;`;
+  const queryValues = [updatedGif.category_id, updatedGif.id];
+  pool
+    .query(queryText, queryValues)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log("Error UPDATING category in favorites", err);
+      res.sendStatus(500);
+    });
 });
 
-// delete a favorite
-router.delete('/', (req, res) => {
-  res.sendStatus(200);
-});
+// delete a favorite:
+
+//prob need to change from req.params.id??? (line62)
+// router.delete(`/:id`, (req, res) => {
+//   const queryText = 'DELETE FROM "favorite" WHERE id=$1';
+//   pool.query(queryText, [req.params.id]).then(() => { res.sendStatus(200); })
+//   .then(() => { res.sendStatus(200); })
+//   .catch((err) => {
+//     console.log('Error DELETING gif', err);
+//     res.sendStatus(500);
+//   });
+// });
 
 module.exports = router;
