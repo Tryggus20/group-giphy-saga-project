@@ -1,5 +1,6 @@
 import React from 'react';
 import FavoriteList from '../FavoriteList/FavoriteList.jsx';
+import "./app.css";
 import Search from '../Search/Search.jsx';
 
 function App(props) {

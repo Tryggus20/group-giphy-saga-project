@@ -7,7 +7,8 @@ console.log(favorite, "this better work")
 
     return (
         <>
-            {favorite.url !== undefined && (<li><img src={favorite.url}></img>
+            {favorite.url !== undefined && (<li><img src={favorite.url} style={{ width: '270px', height: '270px' }}></img>
+            <br />
                 <button>Funny</button> <button>Cohort</button> <button>Cartoon</button> <button>NSFW</button> <button>Meme</button></li>
             )}
         </>
