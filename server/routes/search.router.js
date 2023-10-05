@@ -1,8 +1,8 @@
-require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
+//POST GET
 router.post('/', async (req, res) => {
     try {
         const searchInfo = req.body.q;
