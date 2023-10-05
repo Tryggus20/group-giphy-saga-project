@@ -1,15 +1,22 @@
 // import FavoriteListItem from "../FavoriteListItem/FavoriteListItem"
-import { UseSelector } from "react-redux/";
-export default function FavoriteList() {
+import { useSelector, useDispatch } from "react-redux/";
+import { useEffect } from "react";
 
-const fList = useSelector((store) => store)
-console.log(flist);
+export default function FavoriteList() {
+const dispatch = useDispatch();
+useEffect(() => {
+    console.log("useEffect in FavoriteList");
+    dispatch({type: "FETCH_FAVORITE"})
+}, []);
+const fList = useSelector((store) => store.favoriteReducer)
+console.log(fList);
 return (
     <div className="FavoriteListContainer" >
         <h2>Here are the favorite gifs:</h2>
-    {flist.map((favorite) => (
-        <FavoriteListItem  favorite={favorite}/>
-    ))}
+        <img src="https://giphy.com/embed/MC6eSuC3yypCU" />
+    {/* {fList.map((favorite) => (
+        <FavoriteListItem  favorite={favorite}/> 
+    ))} */}
     </div>
 )
 }
