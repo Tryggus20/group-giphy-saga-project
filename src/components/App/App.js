@@ -1,63 +1,77 @@
-import React from 'react';
-import FavoriteList from '../FavoriteList/FavoriteList.jsx';
-import Search from '../Search/Search.jsx';
+import React from "react";
+import FavoriteList from "../FavoriteList/FavoriteList.jsx";
+import Search from "../Search/Search.jsx";
 import "./app.css";
-import Nsfw from '../Nsfw/Nsfw.jsx';
-import Meme from '../Meme/Meme.jsx';
-import Cartoon from '../Cartoon/Cartoon.jsx';
-import Cohort from '../Cohort/Cohort.jsx';
-import Funny from '../Funny/Funny.jsx';
-import { HashRouter as Router,Route, NavLink as Link} from 'react-router-dom'
+import Nsfw from "../Nsfw/Nsfw.jsx";
+import Meme from "../Meme/Meme.jsx";
+import Cartoon from "../Cartoon/Cartoon.jsx";
+import Cohort from "../Cohort/Cohort.jsx";
+import Funny from "../Funny/Funny.jsx";
+import Category from "../Category/Category.jsx";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { HashRouter as Router, Route, NavLink as Link } from "react-router-dom";
 
 function App(props) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+// TODO to fetch all categories here
+    console.log("useEffect in FavoriteList");
+    // dispatch({ type: "FETCH_FAVORITE" });
+  }, []);
   return (
     <Router>
       <div className='app-container'>
         <h1>Giphy Search!</h1>
         <nav>
           <ul>
-            <li><Link to='/' exact>Home</Link></li>
+            <li>
+              <Link to="/" exact>
+                Home
+              </Link>
+            </li>
           </ul>
           <ul>
-            <li><Link to='/favorite'>Favorite Gifs</Link></li>
+            <li>
+              <Link to="/favorite">Favorite Gifs</Link>
+            </li>
           </ul>
-          <Link to='/funny'>Funny Gifs</Link>
+          <Link to="/funny">Funny Gifs</Link>
           <br />
-          <Link to='/cohort'>Cohort Gifs</Link>
+          <Link to="/cohort">Cohort Gifs</Link>
           <br />
-          <Link to='/cartoon'>Cartoon Gifs</Link>
+          <Link to="/cartoon">Cartoon Gifs</Link>
           <br />
-          <Link to='/nsfw'>NSFW Gifs</Link>
+          <Link to="/nsfw">NSFW Gifs</Link>
           <br />
-          <Link to='/meme'>Meme Gifs</Link>
+          <Link to="/meme">Meme Gifs</Link>
         </nav>
-        <Route exact path='/'>
+        <Route exact path="/">
           <Search />
         </Route>
-        <Route exact path='/favorite'>
+        <Route exact path="/favorite">
           <FavoriteList />
         </Route>
-        <Route path='/favorite' exact>
+        <Route path="/category/:category_id" exact>
+          <Category />
         </Route>
-        <Route exact path='/funny'>
+        <Route exact path="/funny">
           <Funny />
         </Route>
-        <Route path='/cohort'>
+        <Route path="/cohort">
           <Cohort />
         </Route>
-        <Route path='/cartoon'>
+        <Route path="/cartoon">
           <Cartoon />
         </Route>
-        <Route path='/nsfw'>
+        <Route path="/nsfw">
           <Nsfw />
         </Route>
-        <Route path='/meme'>
+        <Route path="/meme">
           <Meme />
         </Route>
-      </div >
+      </div>
     </Router>
   );
-
 }
 export default App;
-

@@ -13,7 +13,7 @@ export default function Funny() {
         dispatch({ type: 'FETCH_CATEGORY', payload: 1})
     },[])
 
-
+console.log(store, "in funnymode");
     return (
         <>
         <h1> Funny Category</h1>

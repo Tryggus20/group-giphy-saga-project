@@ -46,6 +46,7 @@ SET "category_id" = $1
   pool
     .query(queryText, queryValues)
     .then(() => {
+      console.log("------------------",queryText, queryValues, updatedGif, req.body);
       res.sendStatus(200);
     })
     .catch((err) => {
@@ -66,5 +67,79 @@ SET "category_id" = $1
 //     res.sendStatus(500);
 //   });
 // });
+// return all favorite images
+router.get("/funny", (req, res) => {
+  // return all categories
+  const queryText = `SELECT * FROM "favorite" WHERE "category_id" = '1' ORDER BY "id" ASC`;
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on query ${error}`);
+      res.sendStatus(500);
+    });
+});
+
+// return all favorite images
+router.get("/cohort", (req, res) => {
+  // return all categories
+  const queryText = `SELECT * FROM "favorite" WHERE "category_id" = '2' ORDER BY "id" ASC`;
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on query ${error}`);
+      res.sendStatus(500);
+    });
+});
+
+// return all favorite images
+router.get("/cartoon", (req, res) => {
+  // return all categories
+  const queryText = `SELECT * FROM "favorite" WHERE "category_id" = '3' ORDER BY "id" ASC`;
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on query ${error}`);
+      res.sendStatus(500);
+    });
+});
+
+// return all favorite images
+router.get("/nsfw", (req, res) => {
+  // return all categories
+  const queryText = `SELECT * FROM "favorite" WHERE "category_id" = '4' ORDER BY "id" ASC`;
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on query ${error}`);
+      res.sendStatus(500);
+    });
+});
+
+// return all favorite images
+router.get("/meme", (req, res) => {
+  // return all categories
+  const queryText = `SELECT * FROM "favorite" WHERE "category_id" = '5' ORDER BY "id" ASC`;
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on query ${error}`);
+      res.sendStatus(500);
+    });
+});
 
 module.exports = router;
