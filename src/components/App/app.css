@@ -58,7 +58,7 @@ nav a:hover {
 /* Styling for the main content area */
 div {
     max-width: 1200px;
-    margin-left: 220px; /* Adjusting for the fixed navigation width */
+    margin-left: 75px; /* Adjusting for the fixed navigation width */
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
