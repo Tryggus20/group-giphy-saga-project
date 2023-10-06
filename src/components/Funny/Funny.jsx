@@ -10,18 +10,21 @@ export default function Category() {
     // initalize store
     const store = useSelector(store => store.favoriteReducer)
     const filterFavorites = store.filter( favorite => String(favorite.category_id) === String(params.category_id))
-
+    useEffect(() => {
+        dispatch({type: "FETCH_FAVORITE"})
+    , []  })
 
 console.log(store, "in funnymode");
     return (
-        <>
-        <h1> {params.category_id} Category</h1>
+         <>
+        <h1> {params.category_id} Category Funny</h1>
         <h2>{JSON.stringify(params)}</h2>
         {filterFavorites.map(gif => (
             <div key={gif.id}>
                 <img src={gif.url} />
             </div>
-        ))}
+            ))}
         </>
-    )
+      
+    );
 }

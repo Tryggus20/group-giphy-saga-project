@@ -50,13 +50,13 @@ export default function FavoriteListItem({ favorite }) {
           </button>{" "}
           <button
             onClick={() => handleButtonClick(5)}
-            disabled={selectedCategory === 5}
+            disabled={ selectedCategory ===5}
           >
             Meme
           </button>
         </div>
       )}
-      </div>
+    </div>
     
   );
 }
