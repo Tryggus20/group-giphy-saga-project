@@ -1,18 +1,7 @@
-/* body {
-    background-color: rgb(71, 90, 99);
-}
-
-h1,h2,h3{
-    color: rgb(5, 5, 5);
-} */
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
+    background-color: rgba(66, 63, 63, 0.183);
 }
+
 
 h1 {
     text-align: center;
@@ -56,12 +45,13 @@ nav a:hover {
 }
 
 /* Styling for the main content area */
-div {
+div app-container {
     max-width: 1200px;
-    margin-left: 220px; /* Adjusting for the fixed navigation width */
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    margin-left: 75px; /* Adjusting for the fixed navigation width */
+    padding: 10px;
+    background-color: #ffffff05;
+
+    margin-top: 10px;
+    
 }
 
