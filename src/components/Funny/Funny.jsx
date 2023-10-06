@@ -1,27 +1,30 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux"
-import {useParams} from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import "./Funny.css";
 
-export default function Category() {
-    const params = useParams();
+export default function Funny() {
+  const params = useParams();
 
-    // initalize dispatch
+  // initalize dispatch
 
-    // initalize store
-    const store = useSelector(store => store.favoriteReducer)
-    const filterFavorites = store.filter( favorite => String(favorite.category_id) === String(params.category_id))
+  // initalize store
+  const store = useSelector((store) => store.favoriteReducer);
+  const filterFavorites = store.filter(
+    (favorite) => String(favorite.category_id) === String(params.category_id)
+  );
 
+  console.log(store, "in funnymode");
+  return (
+    <>
+      <h1> {params.category_id} Category</h1>
+      <h2>{JSON.stringify(params)}</h2>
 
-console.log(store, "in funnymode");
-    return (
-        <>
-        <h1> {params.category_id} Category</h1>
-        <h2>{JSON.stringify(params)}</h2>
-        {filterFavorites.map(gif => (
-            <div key={gif.id}>
-                <img src={gif.url} />
-            </div>
-        ))}
-        </>
-    )
+      {filterFavorites.map((gif) => (
+        <div className="funny-container" key={gif.id}>
+          <img src={gif.url} />
+        </div>
+      ))}
+    </>
+  );
 }
