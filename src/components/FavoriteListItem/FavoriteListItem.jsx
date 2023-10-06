@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
+import './FavoriteListItem.css'
 
 export default function FavoriteListItem({ favorite }) {
   const dispatch = useDispatch();
@@ -14,9 +15,9 @@ export default function FavoriteListItem({ favorite }) {
   };
 
   return (
-    <>
+   <div className="favorite-item">
       {favorite.url !== undefined && (
-        <li>
+        <div>
           <img
             src={favorite.url}
             style={{ width: "270px", height: "270px" }}
@@ -53,8 +54,9 @@ export default function FavoriteListItem({ favorite }) {
           >
             Meme
           </button>
-        </li>
+        </div>
       )}
-    </>
+      </div>
+    
   );
 }
