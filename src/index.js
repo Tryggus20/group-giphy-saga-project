@@ -12,10 +12,10 @@ import rootReducer from './redux/reducers/_root.reducer';
 const sagaMiddleware = createSagaMiddleware();
 
 // create store instance 
-const storeInstance = 
+const store = 
     createStore(rootReducer, applyMiddleware(sagaMiddleware, logger))
 
 sagaMiddleware.run(watcherSaga)
-ReactDOM.render(< Provider store={storeInstance}>
+ReactDOM.render(< Provider store={store}>
     <App />
 </Provider>, document.getElementById('root'));
