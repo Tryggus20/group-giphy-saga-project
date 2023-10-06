@@ -36,7 +36,7 @@ function App(props) {
               <Link to="/favorite">Favorite Gifs</Link>
             </li>
           </ul>
-          <Link to="/category/1">Funny Gifs</Link>
+          <Link exact to="/category/1">Funny Gifs</Link>
           <br />
           <Link to="/category/2">Cohort Gifs</Link>
           <br />
@@ -52,24 +52,25 @@ function App(props) {
         <Route exact path="/favorite">
           <FavoriteList />
         </Route>
-        <Route path="/category/:category_id" exact>
+        <Route exact path="/category/:category_id" >
           <Category />
-        </Route>
+           </Route>
+           {/* 
         <Route exact path="/category/1">
           <Funny />
         </Route>
-        <Route path="/category/2">
+        <Route exact path="/category/2">
           <Cohort />
         </Route>
         <Route path="/category/3">
           <Cartoon />
         </Route>
-        <Route path="/category/4">
+        <Route exact path="/category/4">
           <Nsfw />
-        </Route>
-        <Route path="/category/5">
-          <Meme />
-        </Route>
+        </Route> 
+         <Route path="/category/5"> 
+         <Meme /> 
+        </Route> */}
       </div>
     </Router>
   );

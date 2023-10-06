@@ -1,30 +1,27 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import {useParams} from "react-router-dom"
 
-export default function Category() {
-    const params = useParams();
+export default function Cohort() {
 
     // initalize dispatch
+    const dispatch = useDispatch();
 
     // initalize store
-    const store = useSelector(store => store.favoriteReducer)
-    const filterFavorites = store.filter( favorite => String(favorite.category_id) === String(params.category_id))
+    const store = useSelector(store => store.categoryReducer)
+
     useEffect(() => {
-        dispatch({type: "FETCH_FAVORITE"})
-    , []  })
+        dispatch({ type: 'FETCH_CATEGORY', payload: 1})
+    },[])
 
 console.log(store, "in funnymode");
     return (
-         <>
-        <h1> {params.category_id} Category Funny</h1>
-        <h2>{JSON.stringify(params)}</h2>
-        {filterFavorites.map(gif => (
+        <>
+        <h1> Category: Funny</h1>
+        {store.map(gif => (
             <div key={gif.id}>
                 <img src={gif.url} />
             </div>
-            ))}
+        ))}
         </>
-      
-    );
+    )
 }

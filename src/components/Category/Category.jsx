@@ -15,7 +15,7 @@ export default function Category() {
 console.log(store, "in funnymode");
     return (
         <>
-        <h1> {params.category_id} Category</h1>
+        <h1>  Category {params.category_id}</h1>
         <h2>{JSON.stringify(params)}</h2>
         {filterFavorites.map(gif => (
             <div key={gif.id}>
