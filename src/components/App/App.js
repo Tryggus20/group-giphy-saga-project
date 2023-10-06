@@ -12,7 +12,7 @@ import { HashRouter as Router,Route, NavLink as Link} from 'react-router-dom'
 function App(props) {
   return (
     <Router>
-      <div>
+      <div className='app-container'>
         <h1>Giphy Search!</h1>
         <nav>
           <ul>

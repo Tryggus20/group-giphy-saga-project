@@ -1,0 +1,22 @@
+.FavoriteListContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line if they run out of space */
+    justify-content: space-between; /* Space out the items evenly */
+    gap: 10px; /* Space between items */
+    margin-left: 245px; /* Adjusting for the fixed navigation width */
+    padding: 10px;
+    background-color: #ffffff05;
+    margin-top: 10px;
+}
+
+.gif-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content vertically */
+}
+
+h2 {
+    color: #1b1919;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
