@@ -13,10 +13,10 @@ export default function Cartoon() {
         dispatch({ type: 'FETCH_CATEGORY', payload: 3})
     },[])
 
-
+console.log(store, "in toonmode");
     return (
         <>
-        <h1> Cartoon Category</h1>
+        <h1> Category: Cartoon</h1>
         {store.map(gif => (
             <div key={gif.id}>
                 <img src={gif.url} />

@@ -13,10 +13,10 @@ export default function Nsfw() {
         dispatch({ type: 'FETCH_CATEGORY', payload: 4})
     },[])
 
-
+console.log(store, "in Nsfwmode");
     return (
         <>
-        <h1> NSFW Category</h1>
+        <h1> Category: NSFW</h1>
         {store.map(gif => (
             <div key={gif.id}>
                 <img src={gif.url} />

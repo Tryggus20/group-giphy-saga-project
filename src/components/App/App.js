@@ -36,15 +36,15 @@ function App(props) {
               <Link to="/favorite">Favorite Gifs</Link>
             </li>
           </ul>
-          <Link to="/funny">Funny Gifs</Link>
+          <Link to="/category/1">Funny Gifs</Link>
           <br />
-          <Link to="/cohort">Cohort Gifs</Link>
+          <Link to="/category/2">Cohort Gifs</Link>
           <br />
-          <Link to="/cartoon">Cartoon Gifs</Link>
+          <Link to="/category/3">Cartoon Gifs</Link>
           <br />
-          <Link to="/nsfw">NSFW Gifs</Link>
+          <Link to="/category/4">NSFW Gifs</Link>
           <br />
-          <Link to="/meme">Meme Gifs</Link>
+          <Link to="/category/5">Meme Gifs</Link>
         </nav>
         <Route exact path="/">
           <Search />
@@ -55,19 +55,19 @@ function App(props) {
         <Route path="/category/:category_id" exact>
           <Category />
         </Route>
-        <Route exact path="/funny">
+        <Route exact path="/category/1">
           <Funny />
         </Route>
-        <Route path="/cohort">
+        <Route path="/category/2">
           <Cohort />
         </Route>
-        <Route path="/cartoon">
+        <Route path="/category/3">
           <Cartoon />
         </Route>
-        <Route path="/nsfw">
+        <Route path="/category/4">
           <Nsfw />
         </Route>
-        <Route path="/meme">
+        <Route path="/category/5">
           <Meme />
         </Route>
       </div>

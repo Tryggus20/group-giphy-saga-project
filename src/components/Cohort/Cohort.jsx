@@ -13,10 +13,10 @@ export default function Cohort() {
         dispatch({ type: 'FETCH_CATEGORY', payload: 2})
     },[])
 
-
+console.log(store, "in cohortmode");
     return (
         <>
-        <h1> Cohort Category</h1>
+        <h1> Category: Cohort</h1>
         {store.map(gif => (
             <div key={gif.id}>
                 <img src={gif.url} />

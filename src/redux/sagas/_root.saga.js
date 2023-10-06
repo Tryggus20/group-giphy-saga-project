@@ -8,11 +8,6 @@ function* watcherSaga() {
     yield takeEvery('SET_CATEGORY', updateFavoriteSaga)
     // yield takeEvery('DELETE_FAVORITE', deleteFavoriteSaga)
     yield takeEvery('FETCH_CATEGORY', getCategorySaga)
-    yield takeEvery('FETCH_FUNNY', getFunnySaga)
-    yield takeEvery('FETCH_COHORT', getCohortSaga)
-    yield takeEvery('FETCH_CARTOON', getCartoonSaga)
-    yield takeEvery('FETCH_NSFW', getNsfwSaga)
-    yield takeEvery('FETCH_MEME', getMemeSaga)
 };
 
 function* searchGifsSaga(action) {
@@ -60,50 +55,6 @@ function* getCategorySaga(action) {
         yield put({ type: 'SET_CATEGORY', payload: response.data })
     } catch (error) {
         console.log('there was an err retreiving favorites list', action.payload , error);
-    }
-}
-function* getFunnySaga() {
-    try {
-        const response = yield axios.get('/api/favorite/funny')
-        yield put({ type: 'SET_FUNNY', payload: response.data })
-    } catch (error) {
-        console.log('there was an err retreiving favorites list', error);
-    }
-}
-
-function* getCohortSaga() {
-    try {
-        const response = yield axios.get('/api/favorite/cohort')
-        yield put({ type: 'SET_COHORT', payload: response.data })
-    } catch (error) {
-        console.log('there was an err retreiving favorites list', error);
-    }
-}
-
-function* getCartoonSaga() {
-    try {
-        const response = yield axios.get('/api/favorite/cartoon')
-        yield put({ type: 'SET_CARTOON', payload: response.data })
-    } catch (error) {
-        console.log('there was an err retreiving favorites list', error);
-    }
-}
-
-function* getNsfwSaga() {
-    try {
-        const response = yield axios.get('/api/favorite/nsfw')
-        yield put({ type: 'SET_NSFW', payload: response.data })
-    } catch (error) {
-        console.log('there was an err retreiving favorites list', error);
-    }
-}
-
-function* getMemeSaga() {
-    try {
-        const response = yield axios.get('/api/favorite/meme')
-        yield put({ type: 'SET_MEME', payload: response.data })
-    } catch (error) {
-        console.log('there was an err retreiving favorites list', error);
     }
 }
 

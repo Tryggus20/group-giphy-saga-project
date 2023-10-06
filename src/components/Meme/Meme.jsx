@@ -13,10 +13,10 @@ export default function Meme() {
         dispatch({ type: 'FETCH_CATEGORY', payload: 5})
     },[])
 
-
+console.log(store, "in mememode");
     return (
         <>
-        <h1> Meme Category</h1>
+        <h1> Category: Meme</h1>
         {store.map(gif => (
             <div key={gif.id}>
                 <img src={gif.url} />
